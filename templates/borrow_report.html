@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Reports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .report-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .chart-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+        .chart {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            display: block;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .user-info i {
+            margin-right: 10px;
+            color: #555;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-chart-bar"></i> Library Reports</h1>
+            <div class="user-info">
+                <i class="fas fa-user"></i>
+                <span>{{ username }}</span>
+            </div>
+        </div>
+        
+        <div class="report-section">
+            <h2><i class="fas fa-book"></i> Top 10 Most Borrowed Books</h2>
+            <div class="chart-container">
+                <img src="data:image/png;base64,{{ plot1 }}" alt="Top Borrowed Books" class="chart">
+            </div>
+        </div>
+        
+        <div class="report-section">
+            <h2><i class="fas fa-calendar-alt"></i> Monthly Borrowing Trends</h2>
+            <div class="chart-container">
+                <img src="data:image/png;base64,{{ plot2 }}" alt="Monthly Trends" class="chart">
+            </div>
+        </div>
+        
+        <div class="report-section">
+            <h2><i class="fas fa-tags"></i> Borrowing by Category</h2>
+            <div class="chart-container">
+             <img src="data:image/png;base64,{{ plot3 }}" class="img-fluid" alt="Category Pie Chart">
+            </div>
+        </div>
+        
+        <a href="{{ url_for('lib_dashboard') }}" class="btn">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+    </div>
+</body>
+</html>
